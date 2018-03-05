@@ -104,19 +104,15 @@ var GitHubAPI = /** @class */ (function () {
         }); };
         // The above is the API for Platform
         this.getDangerCommentIDs = function (dangerID) { return __awaiter(_this, void 0, void 0, function () {
-            var userID, allComments, dangerIDMessage;
+            var allComments, dangerIDMessage;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getUserID()];
+                    case 0: return [4 /*yield*/, this.getPullRequestComments()];
                     case 1:
-                        userID = _a.sent();
-                        return [4 /*yield*/, this.getPullRequestComments()];
-                    case 2:
                         allComments = _a.sent();
                         dangerIDMessage = githubIssueTemplate_1.dangerIDToString(dangerID);
                         return [2 /*return*/, allComments
                                 .filter(function (comment) { return v.includes(comment.body, dangerIDMessage); })
-                                .filter(function (comment) { return userID || comment.user.id === userID; })
                                 .filter(function (comment) { return v.includes(comment.body, githubIssueTemplate_1.dangerSignaturePostfix); })
                                 .map(function (comment) { return comment.id; })];
                 }

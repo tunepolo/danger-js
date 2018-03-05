@@ -5,7 +5,7 @@ process.on("unhandledRejection", function (reason, _p) {
     console.log(chalk_1.default.red("Error: "), reason);
     process.exitCode = 1;
 });
-exports.default = function (command) {
+exports.default = (function (command) {
     return command
         .option("-v, --verbose", "Verbose output of files")
         .option("-c, --external-ci-provider [modulePath]", "Specify custom CI provider")
@@ -13,5 +13,5 @@ exports.default = function (command) {
         .option("-d, --dangerfile [filePath]", "Specify a custom dangerfile path")
         .option("-i, --id [danger_id]", "Specify a unique Danger ID for the Danger run")
         .option("-b, --base [branch_name]", "Base branch");
-};
+});
 //# sourceMappingURL=sharedDangerfileArgs.js.map

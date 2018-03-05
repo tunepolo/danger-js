@@ -85,7 +85,7 @@ exports.babelify = function (content, filename, extraPlugins) {
     var result = babel.transform(content, fileOpts);
     return result.code;
 };
-exports.default = function (code, filename) {
+exports.default = (function (code, filename) {
     if (!hasChecked) {
         exports.checkForNodeModules();
     }
@@ -105,5 +105,5 @@ exports.default = function (code, filename) {
         result = exports.babelify(code, filename, hasFlow ? ["transform-flow-strip-types"] : []);
     }
     return result;
-};
+});
 //# sourceMappingURL=transpiler.js.map
